@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/788718e8f2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -89,6 +89,12 @@
         </div>
 
         <table id="customizeMenuTable" class="filterMenuTable" style="display:table;">
+          <tr>
+            <div id="buttonContainer" class="buttonContainer">
+              <button onclick="replay()">Replay <i class="fas fa-backward"></i></button>
+              <button onclick="fastForward()">Skip<i class="fas fa-forward"></i></button>
+            </div>
+          </tr>
           <tr>
             <td>Speed</td>
             <td><div id="speedSlider"></div></td>

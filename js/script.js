@@ -1,4 +1,4 @@
-var zoomExtent = 13, speed = 0, startingColor = 'red', endingColor = '#290099';
+var zoomExtent = 13, speed = 0, startingColor = 'red', endingColor = '#0e005e';
 
 // initialize maps
 var map = L.map('nyc_map', {minZoom:zoomExtent, maxZoom:zoomExtent, maxBoundsViscosity:1, zoomControl:false});
@@ -69,7 +69,7 @@ document.getElementById("terrainMapButton").addEventListener("click", function()
 });
 
 // read and map data
-function animateNYC() {
+function animateNYC(fastForward = 'N') {
     d3.csv("data/nyc.csv", function(data) {
 
         // filter out activities without a summary polyline
@@ -117,7 +117,10 @@ function animateNYC() {
             .transition()
             .duration(function(d){ return speed * this.getTotalLength();}) // makes animation time correspond to length of run line
             .ease(d3.easeLinear)
-            .delay(function(d,i){return delayLength(i)}) // remove this to start all lines animations at the same time
+            .delay(function(d,i) {
+                if (fastForward == 'N') { return delayLength(i) }
+                else {return 0}
+            }) // remove this to start all lines animations at the same time
             .attr('stroke-dashoffset', 0) // transition dash offset to 0, creating animation illusion
             .transition()
             .duration(1000)
@@ -126,7 +129,7 @@ function animateNYC() {
     });
 }
 
-function animateChicago() {
+function animateChicago(fastForward = 'N') {
     // read and map data
     d3.csv("data/chicago.csv", function(data) {
 
@@ -174,7 +177,10 @@ function animateChicago() {
             .transition()
             .duration(function(d){ return speed * this.getTotalLength();}) // makes animation time correspond to length of run line
             .ease(d3.easeLinear)
-            .delay(function(d,i){return delayLength(i)}) // remove this to start all lines animations at the same time
+            .delay(function(d,i) {
+                if (fastForward == 'N') { return delayLength(i) }
+                else {return 0}
+            }) // remove this to start all lines animations at the same time
             .attr('stroke-dashoffset', 0) // transition dash offset to 0, creating animation illusion
             .transition()
             .duration(1000)
@@ -183,6 +189,18 @@ function animateChicago() {
     });
 }
 
+function replay() {
+    d3.selectAll('path').remove();
+    animateNYC();
+    animateChicago();
+}
+
+function fastForward() {
+    d3.selectAll('path').remove();
+    animateNYC('Y');
+    animateChicago('Y');
+}
 
 animateNYC();
 animateChicago();
+

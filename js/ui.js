@@ -2,11 +2,13 @@
 document.getElementById("menuHeaderContainer3").addEventListener("click", function() {
     if (document.getElementById("customizeMenuTable").style.display == "table"){
         document.getElementById("customizeMenuTable").style.display = "none";
+        document.getElementById("buttonContainer").style.display = "none";
         document.getElementById("menuButton3").innerHTML = "+";
     }
     else {
        document.getElementById("customizeMenuTable").style.display = "table";
        document.getElementById("menuButton3").innerHTML = "-";
+       document.getElementById("buttonContainer").style.display = "block";
     }
 });
 
