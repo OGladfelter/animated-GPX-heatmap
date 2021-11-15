@@ -16,6 +16,23 @@ document.getElementById("backgroundColor").addEventListener("input", function() 
     document.getElementById("chicago_map").style.background = this.value;
 });
 
+// customization menu - line opacity
+$(function() {
+    $("#speedSlider").slider({
+        range: false,
+        min: 1,
+        max: 10,
+        step: 1,
+        value: 4,
+        slide: function(e, ui) {
+            speed = 11 - ui.value;
+            d3.selectAll('path').remove();
+            animateNYC();
+            animateChicago();
+        }
+    });
+});
+
 // customization menu - line thickness
 $(function() {
     $("#thicknessSlider").slider({

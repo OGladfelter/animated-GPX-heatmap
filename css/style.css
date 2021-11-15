@@ -24,7 +24,6 @@ a:hover {text-decoration: underline; background-color: #98ffff;}
 .navbar {
     overflow: hidden;
     background-color: #0e005e;
-    position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     z-index: 999;
