@@ -12,8 +12,8 @@ document.getElementById("menuHeaderContainer3").addEventListener("click", functi
 
 // customization menu item - background color
 document.getElementById("backgroundColor").addEventListener("input", function() { 
-    document.getElementById("map").style.background = this.value;
-    //document.getElementsByTagName("body")[0].style.backgroundColor = this.value;
+    document.getElementById("nyc_map").style.background = this.value;
+    document.getElementById("chicago_map").style.background = this.value;
 });
 
 // customization menu - line thickness
