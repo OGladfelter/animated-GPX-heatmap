@@ -7,6 +7,10 @@ body{
     font-family: "helvetica", "open sans";
 }
 
+.mapContainer {
+    width:50vw; height:100vh; margin: 20px auto;
+}
+
 .leaflet-container{ background: whitesmoke; border: 1px black solid; }
 
 p { font-size: 20px; font-family: Georgia, "Sans-serif", serif;}
@@ -343,6 +347,10 @@ option{
     h2 { font-size: 32px; margin: 10px 10px 30px 10px; font-weight: bold; font-weight: normal; line-height: 38px;}
     h3 { font-size: 18px; margin: 10px 10px 30px 10px; font-weight: normal; line-height: 24px;}
     article { text-align: left; width: 90%; margin: 0 auto;}
+
+    .mapContainer {
+        width:95vw; height:90vh; margin: 20px auto;
+    }
 
     .menuContainer{
         z-index:999;

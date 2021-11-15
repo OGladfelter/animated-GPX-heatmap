@@ -62,3 +62,10 @@ $(function() {
         }
     });
 });
+
+// auto close options menu on mobile
+if (screen.width < 600) {
+    document.getElementById("customizeMenuTable").style.display = "none";
+    document.getElementById("buttonContainer").style.display = "none";
+    document.getElementById("menuButton3").innerHTML = "+";
+}
