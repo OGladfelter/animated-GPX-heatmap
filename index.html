@@ -57,21 +57,20 @@
       <a href="https://cultureplot.com">Cultureplot</a>
     </div>
 
-    <article style='text-align: center; margin: 80px auto'>
+    <article style='text-align: center; margin-top:80px;'>
         <h1 style="margin-left: 0px; margin-bottom: 10px;">Running Brooklyn</h1>
         <h2 style="margin-left: 0px; margin-bottom: 10px;">An Animated Heatmap Of 82 Runs</h2>
         <span>By <a href="https://cultureplot.com/about/" target="_blank" class="bylineLink">Oliver Gladfelter</a></span><span style="color: gray;"> | August 12, 2020</span>
     </article> 
 
     <!-- the map -->
-    <div style="width:75%; height:75%; margin:auto;">
+    <div style="width:50vw; height:75vh; margin: 10px auto;">
         <div id="map" style="width:100%; height:100%"></div>
     </div>
     <!--  -->
 
     <!-- div container to hold menu items -->
     <div class="menuContainer">
-
       <!-- a menu for customizing the appearance -->
       <div id="filterMenu" class="menu">
         <div id="menuHeaderContainer3" class="menuHeaderContainer">
@@ -90,15 +89,15 @@
             </td>
             <td>
               <div>
-                <input type="radio" id="noMapButton" name="mapOptions" value="mapOption1" checked>
+                <input type="radio" id="noMapButton" name="mapOptions" value="mapOption1">
                 <label for="mapOption1">None</label>
 
                 <input type="radio" id="terrainMapButton" name="mapOptions" value="mapOption4">
-                <label for="mapOption4">Terrain</label>
+                <label for="mapOption4">Standard</label>
               </div>
 
               <div>
-                <input type="radio" id="lightMapButton" name="mapOptions" value="mapOption2">
+                <input type="radio" id="lightMapButton" name="mapOptions" value="mapOption2" checked>
                 <label for="mapOption2">Light</label>
               
                 <input type="radio" id="darkMapButton" name="mapOptions" value="mapOption3">
@@ -106,13 +105,9 @@
               </div>
             </td>
           </tr>
-          <tr id="backgroundColorPicker">
+          <tr id="backgroundColorPicker" style="opacity:0.2;pointer-events:none;">
             <td>Background</td>
             <td><input id="backgroundColor" type="color" value="#f5f5f5"></td>
-          </tr>
-          <tr>
-            <td>Line Color</td>
-            <td><input id="lineColor" type="color" value="#001933"></td>
           </tr>
           <tr>
             <td>Line Thickness</td>
@@ -124,9 +119,12 @@
           </tr>
         </table>
       </div>
-      <!--  -->
-
     </div>
+    <!--  -->
+
+    <article>
+      <p>If you’re interested in replicating this heatmap using your own data, I’ve shared all the code used for this project <a href="https://github.com/OGladfelter/run-heatmap" target="_blank">here</a>.</p>
+    </article>
 
     <script src="js/script.js"></script>
     <script src="js/ui.js"></script>
