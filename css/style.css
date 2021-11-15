@@ -59,7 +59,7 @@ a:hover {text-decoration: underline; background-color: #98ffff;}
 }
 
 .menuContainer{
-    z-index:3;
+    z-index:999;
     position:fixed;
     bottom:0;
     right:0;
@@ -70,7 +70,7 @@ a:hover {text-decoration: underline; background-color: #98ffff;}
 
 .menu{
     width: 100%;
-    background-color: white;
+    background-color: rgba(255,255,255,0.9);
     border: 1px black solid;
     margin-bottom: 0px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
