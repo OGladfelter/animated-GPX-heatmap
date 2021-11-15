@@ -1,9 +1,62 @@
 body{
     background-color: whitesmoke;
+    text-align: center;
+    line-height: 160%; 
+    font-size: 16px;  
+    margin: 0;  
+    font-family: "helvetica", "open sans";
 }
 
-.leaflet-container{ background: #000626; }
+.leaflet-container{ background: whitesmoke; border: 1px black solid; }
 
+article { text-align: left; width: 90%; margin: 0 auto;}
+h1 { font-size: 52px; margin: 40px 10px 30px 10px; font-weight: bold; line-height: 54px;}
+h2 { font-size: 30px; margin: 10px 10px 30px 10px; font-weight: bold; font-weight: normal; line-height: 38px;}
+h3 { font-size: 18px; margin: 10px 10px 30px 10px; font-weight: normal; line-height: 24px;}
+p { font-size: 16px; font-family: Georgia, "Sans-serif", serif;}
+span { font-size: 20px; font-family: Georgia, "Sans-serif", serif;}
+
+a:link { color: #141DFF; text-decoration: none;}
+a:visited{ color: #141DFF; }
+a:hover {text-decoration: underline; background-color: #98ffff;}
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #0e005e;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 999;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-bottom-color: #0e005e;
+}
+.navbar a:hover {
+    background: white;
+    color: #0e005e;
+}
+/* Links inside the navbar */
+.navbar a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 7px;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "helvetica", "open sans"; 
+}
+
+::-moz-selection { /* Code for Firefox */
+    background: #98ffff;
+    color: #0e005e;
+}
+::selection {
+    background: #98ffff;
+    color: #0e005e;
+}
 
 .menuContainer{
     z-index:999;
@@ -61,29 +114,25 @@ tr.rowButton:hover{
     display: table;
     font-size: 16px;
 }
-td.menuItemLabel{
+td.menuItemLabel {
     width: 30%;
 }
-tr{
+tr {
     border-top: 1px solid rgb(220, 220, 220);
 }
-td{
+td {
     /* border: 1px solid gray; */
     padding: 10;
     text-align: middle;
 }
 
-p{
-    font-size: 16px;
-}
-
-.ui-widget-header{
+.ui-widget-header {
     background-image:none;
     background-color:orange;
     text-align: center;
     margin: auto;
 }
-.ui-slider{
+.ui-slider {
     margin: 10;
 }
 .ui-slider .ui-slider-handle {
@@ -218,16 +267,6 @@ option{
 }
 
 /* modal */
-.printModal {
-    display: none; 
-    position: fixed; /* Stay in place */
-    z-index: 999; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.75);
-}
 .modal-content-3 {
     background-color:#003366;
     margin: 5% auto 15% auto;
@@ -240,9 +279,6 @@ option{
     color: whitesmoke;
     margin: 10px auto 10px auto;
     font-weight: normal;
-}
-.printModal * {
-    box-sizing: border-box;
 }
 .row {
     display: flex;
@@ -283,7 +319,15 @@ option{
     color: whitesmoke;
 }
 
+
 @media only screen and (max-width: 600px) {
+    p { font-size: 20px; font-family: Georgia, "Sans-serif", serif;}
+    span { font-size: 20px; font-family: Georgia, "Sans-serif", serif;}
+    article { text-align: left; width: 50%; margin: 0 auto;}
+    h1 { font-size: 52px; margin: 40px 10px 30px 10px; font-weight: bold; line-height: 56px;}
+    h2 { font-size: 30px; margin: 10px 10px 30px 10px; font-weight: bold; font-weight: normal; line-height: 36px;}
+    h3 { font-size: 22px; margin: 10px 10px 10px 10px; font-weight: normal; line-height: 28px;}
+
     .menuContainer{
         z-index:999;
         position:fixed;
@@ -297,133 +341,4 @@ option{
     .modal-content-3 {
         width: 90%;
     }
-  }
-
-
-
-  /* BigImage styles */
-
-  .bigimage-unicode-icon {
-    font-size: 19px;
-    font-weight: bold;
-    display: block;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.bigimage-unicode-icon-disable {
-    display: none !important;
-}
-
-.print-disabled {
-    pointer-events: none;
-    opacity: 0.3;
-}
-
-#print-params  {
-    width: 100%;
-    text-align: center;
-}
-
-#print-params > h6 {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    font-family: inherit;
-    font-weight: 500;
-    color: inherit;
-}
-
-#print-params > input[type="number"] {
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 4px;
-}
-
-.close {
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 20px;
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    right: 5px;
-}
-
-.close:hover,
-.close:focus {
-    color: #000000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.operation-btn {
-    text-decoration: none;
-    display: inline !important;
-    padding-right: 3px;
-    vertical-align: middle;
-    font-size: 20px;
-    margin: 3px;
-}
-
-.see-btn:before {
-    content: '\1F441';
-}
-
-.download-btn:before {
-    content: '\2B07';
-}
-
-#print-loading {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 30px;
-    width: 30px;
-    margin: -15px 0 0 -15px;
-    border: 4px rgb(167, 164, 171) solid;
-    border-top: 4px #52006d solid;
-    border-radius: 50%;
-    -webkit-animation: spin 1s infinite linear;
-    animation: spin 1s infinite linear;
-}
-
-@-webkit-keyframes spin {
-    from {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-@keyframes spin {
-    from {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-
-.download-button {
-    font-family: sans-serif;
-    display: inline-block;
-    font-size: 1em;
-    text-align: center;
-    padding: 0.3em 0.8em;
-    background: linear-gradient(45deg, #2b71ad, #0c7162);
-    color: #fff;
-    box-shadow: 0 0.4em 0.4em rgba(0, 0, 0, 0.25);
-    border-radius: 0.4em;
-    transition: box-shadow 0.2s ease-in-out;
-    cursor: pointer;
-    margin-top: 5px;
-}
-
-.download-button:hover {
-    box-shadow: 0 0.1em 0.25em rgba(0,0,0,0.25);
 }

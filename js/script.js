@@ -1,4 +1,4 @@
-var zoomExtent = 13, speed = 8;
+var zoomExtent = 13, speed = 8, startingColor = 'red', endingColor = '#001933';
 var map = L.map('map', {minZoom:zoomExtent, maxZoom:zoomExtent, maxBoundsViscosity:1, zoomControl:false});
 map.setMaxBounds([[40.647789,-74.022393], [40.730217,-73.912763]]);
 map.dragging.disable();
@@ -45,7 +45,7 @@ d3.csv("data/activities_sample.csv", function(data){
         paths[data[i].id] = L.polyline(
             coordinates,
             {
-                color: 'yellow',
+                color: startingColor,
                 weight: 2,
                 opacity: 1,
                 lineJoin: 'round',
@@ -81,9 +81,9 @@ d3.csv("data/activities_sample.csv", function(data){
         .delay(function(d,i){return delayLength(i)}) // remove this to start all lines animations at the same time
         .attr('stroke-dashoffset', 0) // transition dash offset to 0, creating animation illusion
         .transition()
-        .duration(500)
-        .style("opacity", 0.3) // fade line out
-        .style("stroke", "#00e0e0"); // fade line to blue    
+        .duration(1000)
+        .style("opacity", 0.15) // fade line out
+        .style("stroke", endingColor); // fade line to blue    
     ////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////// interactive stuff ////////////////////////
