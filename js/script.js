@@ -1,4 +1,4 @@
-var zoomExtent = 13, speed = 4, startingColor = 'red', endingColor = '#290099';
+var zoomExtent = 13, speed = 0, startingColor = 'red', endingColor = '#290099';
 var map = L.map('map', {minZoom:zoomExtent, maxZoom:zoomExtent, maxBoundsViscosity:1, zoomControl:false});
 map.setMaxBounds([[40.647789,-74.022393], [40.730217,-73.912763]]);
 map.dragging.disable();
@@ -22,20 +22,13 @@ mapTilesDark = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/d
 map.addLayer(mapTilesLight); // default to light map
 
 // read and map data
-d3.csv("data/activities_sample.csv", function(data){
+d3.csv("data/nyc.csv", function(data){
 
     // filter out activities without a summary polyline
     data = data.filter(d => d.summary_polyline != "");
 
-    // setView of map on a given position (using start_latitude,start_longitude)
-    map.setView([parseFloat(data[0]['start_latitude']), parseFloat(data[0]['start_longitude'])], zoomExtent);
-        
-    data.forEach(function(d){
-        d.start_latitude = (+d.start_latitude).toFixed(2);
-        d.start_longitude = (+d.start_longitude).toFixed(2);
-        d.start_point = d.start_latitude + ", " + d.start_longitude;
-        d.miles = (d.distance / 1609).toFixed(1);
-    });
+    // setView of map on a given position (using 40.655239,-73.972084)
+    map.setView([40.655239, -73.972084], zoomExtent);
 
     // DRAW THE ACTIVITY LINES ONTO THE MAP
     paths = {}
@@ -54,11 +47,8 @@ d3.csv("data/activities_sample.csv", function(data){
                 activity: data[i].type,
             },
         )
-        .on('click', function() { 
-            console.log(this.options.name);
-        })
-        .addTo(map)
-        .bindTooltip(data[i].name + "<br>" + data[i].miles + " miles<br>" + data[i].start_date_local.split("T")[0], {sticky: true, className: 'myCSSClass'});
+        .addTo(map);
+        //.bindTooltip(data[i].name + "<br>" + data[i].miles + " miles<br>" + data[i].start_date_local.split("T")[0], {sticky: true, className: 'myCSSClass'});
     }
 
     function delayLength(i, total_length = 0){
@@ -87,18 +77,7 @@ d3.csv("data/activities_sample.csv", function(data){
         .style("stroke", endingColor); // fade line to endingColor value    
     ////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////// interactive stuff ////////////////////////
-
-    // hover over any path to highlight it
-    d3.selectAll("path").on("mouseover", function(){
-        d3.select(this).style('stroke', 'yellow');
-        d3.select(this).style('opacity', 1);
-        d3.select(this).raise();
-    })
-    .on("mouseout", function(){
-        d3.select(this).style('stroke', this.getAttribute("lineColor") ? this.getAttribute("lineColor") : document.getElementById("lineColor").value);
-        d3.select(this).style('opacity', $('#alphaSlider').slider("option", "value"));
-    });
+    ////////////////////////// customization menu options ////////////////////////
 
     // customization menu item - click radio buttons to turn map tiles on/off
     document.getElementById("noMapButton").addEventListener("click", function() { 
