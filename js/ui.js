@@ -4,7 +4,7 @@ document.getElementById("menuHeaderContainer3").addEventListener("click", functi
         document.getElementById("customizeMenuTable").style.display = "none";
         document.getElementById("menuButton3").innerHTML = "+";
     }
-    else{
+    else {
        document.getElementById("customizeMenuTable").style.display = "table";
        document.getElementById("menuButton3").innerHTML = "-";
     }

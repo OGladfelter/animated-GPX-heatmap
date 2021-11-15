@@ -42,9 +42,9 @@ a:hover {text-decoration: underline; background-color: #98ffff;}
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 10px 7px;
+    padding: 6px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     font-family: "helvetica", "open sans"; 
 }
