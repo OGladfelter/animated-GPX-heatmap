@@ -1,5 +1,5 @@
 body{
-    background-color:#000626;
+    background-color: whitesmoke;
 }
 
 .leaflet-container{ background: #000626; }
@@ -58,7 +58,7 @@ tr.rowButton:hover{
 .filterMenuTable{
     width: 100%;
     border-collapse: collapse;
-    display: none;
+    display: table;
     font-size: 16px;
 }
 td.menuItemLabel{

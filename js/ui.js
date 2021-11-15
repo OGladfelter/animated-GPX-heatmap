@@ -1,24 +1,4 @@
 // click divs to show / hide menus
-document.getElementById("menuHeaderContainer1").addEventListener("click", function() {
-    if (document.getElementById("filterMenuTable").style.display == "table"){
-        document.getElementById("filterMenuTable").style.display = "none";
-        document.getElementById("menuButton1").innerHTML = "+";
-    }
-    else{
-       document.getElementById("filterMenuTable").style.display = "table";
-       document.getElementById("menuButton1").innerHTML = "-";
-    }
-});
-document.getElementById("menuHeaderContainer2").addEventListener("click", function() {
-    if (document.getElementById("jumperTable").style.display == "table"){
-        document.getElementById("jumperTable").style.display = "none";
-        document.getElementById("menuButton2").innerHTML = "+";
-    }
-    else{
-       document.getElementById("jumperTable").style.display = "table";
-       document.getElementById("menuButton2").innerHTML = "-";
-    }
-});
 document.getElementById("menuHeaderContainer3").addEventListener("click", function() {
     if (document.getElementById("customizeMenuTable").style.display == "table"){
         document.getElementById("customizeMenuTable").style.display = "none";
@@ -33,7 +13,7 @@ document.getElementById("menuHeaderContainer3").addEventListener("click", functi
 // customization menu item - background color
 document.getElementById("backgroundColor").addEventListener("input", function() { 
     document.getElementById("map").style.background = this.value;
-    document.getElementsByTagName("body")[0].style.backgroundColor = this.value;
+    //document.getElementsByTagName("body")[0].style.backgroundColor = this.value;
 });
 
 // customization menu item - line color
