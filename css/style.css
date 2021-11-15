@@ -11,7 +11,7 @@ body{
 
 p { font-size: 20px; font-family: Georgia, "Sans-serif", serif;}
 span { font-size: 20px; font-family: Georgia, "Sans-serif", serif;}
-article { text-align: left; width: 50%; margin: 0 auto;}
+article { text-align: left; width: 50%; margin: 75px auto 50px auto;}
 h1 { font-size: 52px; margin: 40px 10px 30px 10px; font-weight: bold; line-height: 56px;}
 h2 { font-size: 30px; margin: 10px 10px 30px 10px; font-weight: bold; font-weight: normal; line-height: 36px;}
 h3 { font-size: 22px; margin: 10px 10px 10px 10px; font-weight: normal; line-height: 28px;}

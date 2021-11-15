@@ -1,4 +1,4 @@
-var zoomExtent = 13, speed = 0, startingColor = 'red', endingColor = '#0e005e';
+var zoomExtent = 13, speed = 4, startingColor = 'red', endingColor = '#0e005e';
 
 // initialize maps
 var map = L.map('nyc_map', {minZoom:zoomExtent, maxZoom:zoomExtent, maxBoundsViscosity:1, zoomControl:false});
