@@ -1,5 +1,5 @@
 var zoomExtent = 13, speed = 0, startingColor = 'red', endingColor = '#290099';
-var map = L.map('map', {minZoom:zoomExtent, maxZoom:zoomExtent, maxBoundsViscosity:1, zoomControl:false});
+var map = L.map('nyc_map', {minZoom:zoomExtent, maxZoom:zoomExtent, maxBoundsViscosity:1, zoomControl:false});
 map.setMaxBounds([[40.647789,-74.022393], [40.730217,-73.912763]]);
 map.dragging.disable();
 
@@ -30,7 +30,7 @@ d3.csv("data/nyc.csv", function(data){
     // setView of map on a given position (using 40.655239,-73.972084)
     map.setView([40.655239, -73.972084], zoomExtent);
 
-    // DRAW THE ACTIVITY LINES ONTO THE MAP
+    // draw the activity lines onto the map
     paths = {}
     for (i=0; i<data.length; i++){
         
