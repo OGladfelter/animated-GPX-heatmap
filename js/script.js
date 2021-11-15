@@ -1,4 +1,4 @@
-var zoomExtent = 13, speed = 8;
+var zoomExtent = 13, speed = 4, startingColor = 'red', endingColor = '#290099';
 var map = L.map('map', {minZoom:zoomExtent, maxZoom:zoomExtent, maxBoundsViscosity:1, zoomControl:false});
 map.setMaxBounds([[40.647789,-74.022393], [40.730217,-73.912763]]);
 map.dragging.disable();
@@ -19,6 +19,7 @@ mapTilesDark = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/d
     continuousWorld: false,
     noWrap: true
 });
+map.addLayer(mapTilesLight); // default to light map
 
 // read and map data
 d3.csv("data/activities_sample.csv", function(data){
@@ -45,7 +46,7 @@ d3.csv("data/activities_sample.csv", function(data){
         paths[data[i].id] = L.polyline(
             coordinates,
             {
-                color: 'yellow',
+                color: startingColor,
                 weight: 2,
                 opacity: 1,
                 lineJoin: 'round',
@@ -72,7 +73,7 @@ d3.csv("data/activities_sample.csv", function(data){
 
     // set opacity of all lines and animate them
     d3.selectAll("path")
-        .style("opacity", 0.8)
+        .style("opacity", 1)
         .attr('stroke-dasharray', function(d, i){ return this.getTotalLength();}) // line starts completely in a dash offset
         .attr('stroke-dashoffset', function(d){ return this.getTotalLength();})
         .transition()
@@ -81,9 +82,9 @@ d3.csv("data/activities_sample.csv", function(data){
         .delay(function(d,i){return delayLength(i)}) // remove this to start all lines animations at the same time
         .attr('stroke-dashoffset', 0) // transition dash offset to 0, creating animation illusion
         .transition()
-        .duration(500)
+        .duration(1000)
         .style("opacity", 0.3) // fade line out
-        .style("stroke", "#00e0e0"); // fade line to blue    
+        .style("stroke", endingColor); // fade line to endingColor value    
     ////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////// interactive stuff ////////////////////////
@@ -105,28 +106,32 @@ d3.csv("data/activities_sample.csv", function(data){
         map.removeLayer(mapTilesDark);
         map.removeLayer(mapTilesLight);
         map.removeLayer(mapTilesTerrain);
-        //document.getElementById("backgroundColor").disabled = false;
+        document.getElementById("backgroundColorPicker").style.opacity = 1;
+        document.getElementById("backgroundColorPicker").style.pointerEvents = 'initial';
     });
     document.getElementById("lightMapButton").addEventListener("click", function() { 
         // add leaflet map tiles
         map.removeLayer(mapTilesDark);
         map.removeLayer(mapTilesTerrain);
         map.addLayer(mapTilesLight);
-        //document.getElementById("backgroundColor").disabled = true;
+        document.getElementById("backgroundColorPicker").style.opacity = 0.2;
+        document.getElementById("backgroundColorPicker").style.pointerEvents = 'none';
     });
     document.getElementById("darkMapButton").addEventListener("click", function() { 
         // add leaflet map tiles
         map.removeLayer(mapTilesLight);
         map.removeLayer(mapTilesTerrain);
         map.addLayer(mapTilesDark);
-        //document.getElementById("backgroundColor").disabled = true;
+        document.getElementById("backgroundColorPicker").style.opacity = 0.2;
+        document.getElementById("backgroundColorPicker").style.pointerEvents = 'none';
     });
     document.getElementById("terrainMapButton").addEventListener("click", function() { 
         // add leaflet map tiles
         map.removeLayer(mapTilesLight);
         map.removeLayer(mapTilesDark);
         map.addLayer(mapTilesTerrain);
-        //document.getElementById("backgroundColor").disabled = true;
+        document.getElementById("backgroundColorPicker").style.opacity = 0.2;
+        document.getElementById("backgroundColorPicker").style.pointerEvents = 'none';
     });
 
 });
