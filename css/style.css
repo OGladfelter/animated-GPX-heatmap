@@ -339,6 +339,16 @@ option{
     cursor: pointer;
 }
 
+#backgroundColorPicker {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 2s;
+  }
+  
+  #backgroundColorPicker:hover {
+    opacity:1;
+  }
+
 
 @media only screen and (max-width: 600px) {
     p { font-size: 16px; font-family: Georgia, "Sans-serif", serif;}

@@ -32,7 +32,8 @@ document.getElementById("noMapButton").addEventListener("click", function() {
     map2.removeLayer(mapTilesLight2);
     map2.removeLayer(mapTilesTerrain2);
     document.getElementById("backgroundColorPicker").style.opacity = 1;
-    document.getElementById("backgroundColorPicker").style.pointerEvents = 'initial';
+    d3.selectAll("path").style("stroke","#0e005e");
+    endingColor = '#0e005e';
 });
 document.getElementById("lightMapButton").addEventListener("click", function() { 
     // add leaflet map tiles
@@ -42,8 +43,9 @@ document.getElementById("lightMapButton").addEventListener("click", function() {
     map2.removeLayer(mapTilesDark2);
     map2.removeLayer(mapTilesTerrain2);
     map2.addLayer(mapTilesLight2);
-    document.getElementById("backgroundColorPicker").style.opacity = 0.2;
-    document.getElementById("backgroundColorPicker").style.pointerEvents = 'none';
+    document.getElementById("backgroundColorPicker").style.opacity = 0;
+    d3.selectAll("path").style("stroke","#0e005e");
+    endingColor = '#0e005e';
 });
 document.getElementById("darkMapButton").addEventListener("click", function() { 
     // add leaflet map tiles
@@ -53,8 +55,9 @@ document.getElementById("darkMapButton").addEventListener("click", function() {
     map2.removeLayer(mapTilesLight2);
     map2.removeLayer(mapTilesTerrain2);
     map2.addLayer(mapTilesDark2);
-    document.getElementById("backgroundColorPicker").style.opacity = 0.2;
-    document.getElementById("backgroundColorPicker").style.pointerEvents = 'none';
+    document.getElementById("backgroundColorPicker").style.opacity = 0;
+    d3.selectAll("path").style("stroke","cyan");
+    endingColor = 'cyan';
 });
 document.getElementById("terrainMapButton").addEventListener("click", function() { 
     // add leaflet map tiles
@@ -64,8 +67,9 @@ document.getElementById("terrainMapButton").addEventListener("click", function()
     map2.removeLayer(mapTilesLight2);
     map2.removeLayer(mapTilesDark2);
     map2.addLayer(mapTilesTerrain2);
-    document.getElementById("backgroundColorPicker").style.opacity = 0.2;
-    document.getElementById("backgroundColorPicker").style.pointerEvents = 'none';
+    document.getElementById("backgroundColorPicker").style.opacity = 0;
+    d3.selectAll("path").style("stroke","#0e005e");
+    endingColor = '#0e005e';
 });
 
 // read and map data
@@ -88,7 +92,7 @@ function animateNYC(fastForward = 'N') {
                 coordinates,
                 {
                     color: startingColor,
-                    weight: 2,
+                    weight: $('#thicknessSlider').slider("option", "value"),
                     opacity: 1,
                     lineJoin: 'round',
                     name: data[i].name,
@@ -124,7 +128,7 @@ function animateNYC(fastForward = 'N') {
             .attr('stroke-dashoffset', 0) // transition dash offset to 0, creating animation illusion
             .transition()
             .duration(1000)
-            .style("opacity", 0.3) // fade line out
+            .style("opacity", $('#alphaSlider').slider("option", "value")) // fade line out
             .style("stroke", endingColor); // fade line to endingColor value    
     });
 }
@@ -149,7 +153,7 @@ function animateChicago(fastForward = 'N') {
                 coordinates,
                 {
                     color: startingColor,
-                    weight: 2,
+                    weight: $('#thicknessSlider').slider("option", "value"),
                     opacity: 1,
                     lineJoin: 'round',
                     name: data[i].name,
@@ -184,7 +188,7 @@ function animateChicago(fastForward = 'N') {
             .attr('stroke-dashoffset', 0) // transition dash offset to 0, creating animation illusion
             .transition()
             .duration(1000)
-            .style("opacity", 0.3) // fade line out
+            .style("opacity", $('#alphaSlider').slider("option", "value")) // fade line out
             .style("stroke", endingColor); // fade line to endingColor value    
     });
 }
